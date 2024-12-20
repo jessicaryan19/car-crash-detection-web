@@ -15,6 +15,19 @@ document.getElementById('image-file').addEventListener('change', function(event)
     }
 });
 
+function getApiUrlForModel(model) {
+    switch (model) {
+        case 'logistic-regression':
+            return
+        case 'random-forest':
+            return
+        case 'mobilenetv3':
+            return
+        case 'vgg19':
+            return
+    }
+}
+
 document.getElementById('predict-btn').addEventListener('click', function() {
     const file = window.selectedImage;
     const model = document.getElementById('model').value;
@@ -31,7 +44,7 @@ document.getElementById('predict-btn').addEventListener('click', function() {
         const formData = new FormData();
         formData.append('image', file);
 
-        const apiUrl = ''
+        const apiUrl = getApiUrlForModel(model);
 
         loading.classList.remove('hidden');
 
@@ -43,15 +56,15 @@ document.getElementById('predict-btn').addEventListener('click', function() {
         .then(data => {
             loading.classList.add('hidden');
             resultModal.classList.remove('hidden');
-            result.textContent = data.result;
-            console.log('Success:', data);
+
+            const predictionResult = data.predction[0][0] == 0 ? 'No Car Crash' : 'Car Crash';
+            result.textContent = predictionResult;
         })
         .catch((error) => {
             loading.classList.add('hidden');
             resultModal.classList.remove('hidden');
             result.textContent = 'An error occurred. Please try again later.';
             result.classList.add('text-red-600');
-            console.error('Error:', error);
         });
     }
 });
