@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>Car Crash Detection</title>
+</head>
+<body>
+    <div style="font-family: 'Poppins', sans-serif;">
+        <div class="flex justify-between bg-[#0003ff] text-white px-40 py-8 text-2xl">
+            <div>Computer Vision</div>
+            <div>Group 17</div>
+        </div>
+    
+        <div class="flex flex-col px-40 py-20 gap-20">
+            <div class="flex flex-col gap-5">
+                <div class="text-8xl font-bold">Car Crash Detection</div>
+                <div class="text-2xl">Jessica Ryan, Dave Andrew Nathaniel, and Wairanata Halim</div>
+            </div>
+            <div class="flex flex-col gap-5">
+                <input type="file" id="image-file" accept="image/*" class="block w-full text-2xl
+                    file:mr-4 file:py-2 file:px-10 
+                    file:rounded-lg file:border-0 
+                    file:bg-[#0003ff] file:text-white">
+                <div class="flex gap-5 flex-col w-1/2 hidden" id="image-preview-container">
+                    <div class="aspect-video rounded-lg overflow-hidden">
+                        <img class="w-full h-full object-cover" id="image-preview">
+                    </div>
+                    <button id="predict-btn" class="bg-[#0003ff] text-2xl text-white py-2 px-10 rounded-lg">Predict</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
