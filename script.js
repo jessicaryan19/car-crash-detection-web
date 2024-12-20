@@ -17,11 +17,20 @@ document.getElementById('image-file').addEventListener('change', function(event)
 
 document.getElementById('predict-btn').addEventListener('click', function() {
     const file = window.selectedImage;
+    const model = document.getElementById('model').value;
+
+    if (model == "") {
+        const error = document.getElementById('error-msg');
+        error.textContent = 'Please select a model!';
+        return;
+    }
     if (file) {
         const formData = new FormData();
         formData.append('image', file);
 
-        fetch('/predict', {
+        const apiUrl = ''
+
+        fetch(apiUrl, {
             method: 'POST',
             body: formData,
         })

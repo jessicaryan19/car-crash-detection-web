@@ -17,21 +17,30 @@
             <div>Group 17</div>
         </div>
     
-        <div class="flex flex-col px-40 py-20 gap-20">
+        <div class="flex flex-col px-40 py-20 gap-10">
             <div class="flex flex-col gap-5">
                 <div class="text-8xl font-bold">Car Crash Detection</div>
                 <div class="text-2xl">Jessica Ryan, Dave Andrew Nathaniel, and Wairanata Halim</div>
             </div>
-            <div class="flex flex-col gap-5">
-                <input type="file" id="image-file" accept="image/*" class="block w-full text-2xl
-                    file:mr-4 file:py-2 file:px-10 
-                    file:rounded-lg file:border-0 
-                    file:bg-[#0003ff] file:text-white">
-                <div class="flex gap-5 flex-col w-1/2 hidden" id="image-preview-container">
+
+            <div class="flex flex-col gap-5 w-1/2">
+                <select id="model" class="px-10 py-2 w-full text-2xl rounded-lg border-2 border-[#0003ff] w-1/2 appearance-none">
+                    <option value="" selected disabled>Select Model</option>
+                    <option value="logistic-regression">Logistic Regression (Traditional Method)</option>
+                    <option value="random-forest">Random Forest (Traditional Method)</option>
+                    <option value="mobilenetv3">MobileNetV3 (Deep Learning)</option>
+                    <option value="vgg19">VGG-19 (Deep Learning)</option>
+                </select>
+
+                <input type="file" id="image-file" accept="image/*" class="block w-full text-2xl border-2 border-[#0003ff] rounded-lg
+                        file:mr-4 file:py-2 file:px-10 file:border-0 file:bg-[#0003ff] file:text-white">
+
+                <div class="flex gap-5 flex-col hidden" id="image-preview-container">
                     <div class="aspect-video rounded-lg overflow-hidden">
                         <img class="w-full h-full object-cover" id="image-preview">
                     </div>
                     <button id="predict-btn" class="bg-[#0003ff] text-2xl text-white py-2 px-10 rounded-lg">Predict</button>
+                    <div id="error-msg" class="text-red-600 text-2xl"></div>
                 </div>
             </div>
         </div>
